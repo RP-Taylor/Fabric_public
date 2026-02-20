@@ -1,0 +1,386 @@
+table silver_churn
+	lineageTag: 3da4ff30-1e8d-4920-a445-1692bcc8a0ce
+	sourceLineageTag: [dbo].[silver_churn]
+
+	measure Customers = ```
+			
+			    COUNTROWS('silver_churn')
+			```
+		formatString: 0
+		lineageTag: 4ad0cb1b-481d-4657-9d4c-d296214357bd
+
+	measure 'Churned Customers' = ```
+			
+			    CALCULATE(
+			      COUNTROWS('silver_churn'),
+			      'silver_churn'[is_churned] = TRUE()
+			    )
+			```
+		formatString: 0
+		lineageTag: 332dc659-860b-4913-b7ef-579c3432bae3
+
+	measure 'Current Customers' = ```
+			
+			    CALCULATE(
+			      COUNTROWS('silver_churn'),
+			      'silver_churn'[is_current_customer] = TRUE()
+			    )
+			```
+		formatString: 0
+		lineageTag: 12807d60-3089-4858-a99d-6c3acf906b46
+
+	/// Calculates the churn rate by dividing the number of churned customers by the total number of customers.
+	measure 'Churn Rate' = ```
+			
+			    DIVIDE([Churned Customers], [Customers])
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7d645bec-f930-4c4c-959e-8165d5bfcd05
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the proportion of current customers retained out of the total customers, providing the customer retention rate.
+	measure 'Retention Rate' = ```
+			
+			    DIVIDE([Current Customers], [Customers])
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 91a67cc9-9cba-4882-970c-e8309f317d12
+
+		changedProperty = Description
+
+		changedProperty = FormatString
+
+	/// Calculates the ratio of churned customers to current customers, representing the odds of customer churn.
+	measure 'Churn Odds' = ```
+			
+			    // Odds = churned / current
+			    DIVIDE([Churned Customers], [Current Customers])
+			```
+		lineageTag: dbdd1876-1082-428c-92ef-7bfb6901c796
+
+		changedProperty = Description
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Products per Customer' = ```
+			
+			    AVERAGE('silver_churn'[number_of_products])
+			```
+		lineageTag: 5c20095b-df23-4e8d-9c5c-979e743ce3f3
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Credit Card Holders' = ```
+			
+			    CALCULATE(
+			      COUNTROWS('silver_churn'),
+			      'silver_churn'[has_credit_card] = 1
+			    )
+			```
+		formatString: 0
+		lineageTag: 690bc750-7191-4fb0-a598-cfd852100f9b
+
+	measure 'Credit Card Penetration' = ```
+			
+			    DIVIDE([Credit Card Holders], [Customers])
+			```
+		lineageTag: 5f186951-f28c-4e95-b506-9564ad7fe46f
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Churn Rate (CC Holders)' = ```
+			
+			    // Churn rate among customers who have a credit card
+			    VAR _ccChurned =
+			      CALCULATE(
+			        COUNTROWS('silver_churn'),
+			        'silver_churn'[is_churned] = TRUE(),
+			        'silver_churn'[has_credit_card] = 1
+			      )
+			    VAR _ccTotal =
+			      CALCULATE(
+			        COUNTROWS('silver_churn'),
+			        'silver_churn'[has_credit_card] = 1
+			      )
+			    RETURN
+			      DIVIDE(_ccChurned, _ccTotal)
+			```
+		lineageTag: 03307f27-c95e-45d7-9dd9-a5a201485fea
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Balance' = ```
+			
+			    AVERAGE('silver_churn'[balance])
+			```
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 2b348212-6ac5-4577-9143-d06b6f981edb
+
+		changedProperty = FormatString
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Avg Salary' = ```
+			
+			    AVERAGE('silver_churn'[estimated_salary])
+			```
+		lineageTag: e9032a43-f9aa-4251-a7c6-58e5f4e4e2d9
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Balance-to-Salary Ratio' = ```
+			
+			    // Uses the ratio of averages to avoid row-level division noise
+			    DIVIDE([Avg Balance], [Avg Salary])
+			```
+		lineageTag: 8b941015-e61f-4c30-b5ee-17a738e03f53
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Tenure' = ```
+			
+			    AVERAGE('silver_churn'[tenure])
+			```
+		lineageTag: 5ad0e07c-b5ca-4a28-971a-716e97fab847
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Credit Score' = ```
+			
+			    AVERAGE('silver_churn'[credit_score])
+			```
+		lineageTag: ceb51585-eaba-4433-80ab-3b1fe30c7ca1
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 882c7ee3-b935-4601-b479-ec01d297cb1a
+		sourceLineageTag: customer_id
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column surname
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b8283305-3156-4625-afc2-6685ad92dad4
+		sourceLineageTag: surname
+		summarizeBy: none
+		sourceColumn: surname
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_score
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 354ea071-a17d-4e4d-8451-11942050b5e6
+		sourceLineageTag: credit_score
+		summarizeBy: average
+		sourceColumn: credit_score
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column geography
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: f48efec4-7ce9-4d53-9a3a-144b777e9517
+		sourceLineageTag: geography
+		summarizeBy: none
+		sourceColumn: geography
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: b9e47124-76e8-4023-b897-3069b7346651
+		sourceLineageTag: gender
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 4d367cd7-298c-4e84-b8c3-c594f681acf3
+		sourceLineageTag: age
+		summarizeBy: average
+		sourceColumn: age
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column tenure
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a1fd134b-223c-48de-98e1-780bc49f7da9
+		sourceLineageTag: tenure
+		summarizeBy: sum
+		sourceColumn: tenure
+
+		annotation SummarizationSetBy = Automatic
+
+	column balance
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: float
+		lineageTag: 3153c4f4-c27a-47ca-990a-4473d2d6b736
+		sourceLineageTag: balance
+		summarizeBy: average
+		sourceColumn: balance
+
+		changedProperty = FormatString
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column number_of_products
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: a95bebef-bf48-480f-8352-c891d8286be6
+		sourceLineageTag: number_of_products
+		summarizeBy: sum
+		sourceColumn: number_of_products
+
+		annotation SummarizationSetBy = Automatic
+
+	column has_credit_card
+		dataType: int64
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 73694e9f-4163-41b0-a574-a142b2c8891d
+		sourceLineageTag: has_credit_card
+		summarizeBy: none
+		sourceColumn: has_credit_card
+
+		changedProperty = SummarizeBy
+
+		annotation SummarizationSetBy = User
+
+	column is_current_customer
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 903e350f-787b-40fa-a921-ee41a4612c65
+		sourceLineageTag: is_current_customer
+		summarizeBy: none
+		sourceColumn: is_current_customer
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimated_salary
+		dataType: double
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: float
+		lineageTag: 613e45e3-5d3c-4a38-ba78-00bfaf9a81ab
+		sourceLineageTag: estimated_salary
+		summarizeBy: sum
+		sourceColumn: estimated_salary
+
+		changedProperty = FormatString
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column is_churned
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 29a7b78e-55d4-4125-8f2d-c80e2a4cd72f
+		sourceLineageTag: is_churned
+		summarizeBy: none
+		sourceColumn: is_churned
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_bucket
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0fcc8c22-fe89-4ec1-8aa7-b4880628b6b3
+		sourceLineageTag: age_bucket
+		summarizeBy: none
+		sourceColumn: age_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column salary_bucket
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 0d866508-133f-4861-9fa3-c12937dfcd27
+		sourceLineageTag: salary_bucket
+		summarizeBy: none
+		sourceColumn: salary_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column tenure_bucket
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: e4f45587-e075-4eb1-80d8-668a9764f13c
+		sourceLineageTag: tenure_bucket
+		summarizeBy: none
+		sourceColumn: tenure_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column balance_bucket
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: c1cf14d4-17ad-45a3-89a3-8aa9bb06878b
+		sourceLineageTag: balance_bucket
+		summarizeBy: none
+		sourceColumn: balance_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column credit_score_bucket
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 1703313c-fd8e-4944-8cf5-a334ff2b1426
+		sourceLineageTag: credit_score_bucket
+		summarizeBy: none
+		sourceColumn: credit_score_bucket
+
+		annotation SummarizationSetBy = Automatic
+
+	column ingestion_date
+		dataType: dateTime
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 149eaf09-a20f-4c26-b579-0724a5c004d9
+		sourceLineageTag: ingestion_date
+		summarizeBy: none
+		sourceColumn: ingestion_date
+
+		annotation SummarizationSetBy = Automatic
+
+	partition silver_churn = entity
+		mode: directLake
+		source
+			entityName: silver_churn
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

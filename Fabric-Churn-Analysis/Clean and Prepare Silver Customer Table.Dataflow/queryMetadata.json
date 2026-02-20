@@ -1,0 +1,31 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {},
+  "name": "Clean and Prepare Bronze Customer Table",
+  "queryGroups": [],
+  "documentLocale": "en-US",
+  "queriesMetadata": {
+    "silver_churn": {
+      "queryId": "38e018ac-85c4-4f8e-901e-6726a9085df3",
+      "queryName": "silver_churn"
+    },
+    "silver_churn_DataDestination": {
+      "queryId": "3ae1041f-7fa6-4d0f-b8ec-d86b5071be02",
+      "queryName": "silver_churn_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"285aaf1a-0158-4710-8583-08a3d0737984\",\"DatasourceId\":\"0ab55395-c2b4-4934-af25-76d63e12f310\"}"
+    },
+    {
+      "path": "Warehouse",
+      "kind": "Warehouse",
+      "connectionId": "{\"ClusterId\":\"285aaf1a-0158-4710-8583-08a3d0737984\",\"DatasourceId\":\"0a66d429-74f8-4726-9584-317713d08fdd\"}"
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/dataAgent/definition/dataSource/1.0.0/schema.json",
+  "artifactId": "e008bc3b-76ec-a7eb-4162-833c96033612",
+  "workspaceId": "00000000-0000-0000-0000-000000000000",
+  "dataSourceInstructions": null,
+  "displayName": "Customer Churn Dataset",
+  "type": "semantic_model",
+  "userDescription": null,
+  "metadata": {},
+  "elements": [
+    {
+      "id": "3da4ff30-1e8d-4920-a445-1692bcc8a0ce",
+      "is_selected": true,
+      "display_name": "silver_churn",
+      "type": "semantic_model.table",
+      "description": null,
+      "children": [
+        {
+          "id": "4d367cd7-298c-4e84-b8c3-c594f681acf3",
+          "is_selected": true,
+          "display_name": "age",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0fcc8c22-fe89-4ec1-8aa7-b4880628b6b3",
+          "is_selected": true,
+          "display_name": "age_bucket",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "2b348212-6ac5-4577-9143-d06b6f981edb",
+          "is_selected": true,
+          "display_name": "Avg Balance",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "8b941015-e61f-4c30-b5ee-17a738e03f53",
+          "is_selected": true,
+          "display_name": "Avg Balance-to-Salary Ratio",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "ceb51585-eaba-4433-80ab-3b1fe30c7ca1",
+          "is_selected": true,
+          "display_name": "Avg Credit Score",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e9032a43-f9aa-4251-a7c6-58e5f4e4e2d9",
+          "is_selected": true,
+          "display_name": "Avg Salary",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5ad0e07c-b5ca-4a28-971a-716e97fab847",
+          "is_selected": true,
+          "display_name": "Avg Tenure",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "3153c4f4-c27a-47ca-990a-4473d2d6b736",
+          "is_selected": true,
+          "display_name": "balance",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "c1cf14d4-17ad-45a3-89a3-8aa9bb06878b",
+          "is_selected": true,
+          "display_name": "balance_bucket",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "dbdd1876-1082-428c-92ef-7bfb6901c796",
+          "is_selected": true,
+          "display_name": "Churn Odds",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "7d645bec-f930-4c4c-959e-8165d5bfcd05",
+          "is_selected": true,
+          "display_name": "Churn Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "03307f27-c95e-45d7-9dd9-a5a201485fea",
+          "is_selected": true,
+          "display_name": "Churn Rate (CC Holders)",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "332dc659-860b-4913-b7ef-579c3432bae3",
+          "is_selected": true,
+          "display_name": "Churned Customers",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "690bc750-7191-4fb0-a598-cfd852100f9b",
+          "is_selected": true,
+          "display_name": "Credit Card Holders",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5f186951-f28c-4e95-b506-9564ad7fe46f",
+          "is_selected": true,
+          "display_name": "Credit Card Penetration",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "354ea071-a17d-4e4d-8451-11942050b5e6",
+          "is_selected": true,
+          "display_name": "credit_score",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "1703313c-fd8e-4944-8cf5-a334ff2b1426",
+          "is_selected": true,
+          "display_name": "credit_score_bucket",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "12807d60-3089-4858-a99d-6c3acf906b46",
+          "is_selected": true,
+          "display_name": "Current Customers",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "882c7ee3-b935-4601-b479-ec01d297cb1a",
+          "is_selected": true,
+          "display_name": "customer_id",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "4ad0cb1b-481d-4657-9d4c-d296214357bd",
+          "is_selected": true,
+          "display_name": "Customers",
+          "type": "semantic_model.measure",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "613e45e3-5d3c-4a38-ba78-00bfaf9a81ab",
+          "is_selected": true,
+          "display_name": "estimated_salary",
+          "type": "semantic_model.column",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b9e47124-76e8-4023-b897-3069b7346651",
+          "is_selected": true,
+          "display_name": "gender",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "f48efec4-7ce9-4d53-9a3a-144b777e9517",
+          "is_selected": true,
+          "display_name": "geography",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "73694e9f-4163-41b0-a574-a142b2c8891d",
+          "is_selected": true,
+          "display_name": "has_credit_card",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "149eaf09-a20f-4c26-b579-0724a5c004d9",
+          "is_selected": true,
+          "display_name": "ingestion_date",
+          "type": "semantic_model.column",
+          "data_type": "DateTime",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "29a7b78e-55d4-4125-8f2d-c80e2a4cd72f",
+          "is_selected": true,
+          "display_name": "is_churned",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "903e350f-787b-40fa-a921-ee41a4612c65",
+          "is_selected": true,
+          "display_name": "is_current_customer",
+          "type": "semantic_model.column",
+          "data_type": "Boolean",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a95bebef-bf48-480f-8352-c891d8286be6",
+          "is_selected": true,
+          "display_name": "number_of_products",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "5c20095b-df23-4e8d-9c5c-979e743ce3f3",
+          "is_selected": true,
+          "display_name": "Products per Customer",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "91a67cc9-9cba-4882-970c-e8309f317d12",
+          "is_selected": true,
+          "display_name": "Retention Rate",
+          "type": "semantic_model.measure",
+          "data_type": "Double",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "0d866508-133f-4861-9fa3-c12937dfcd27",
+          "is_selected": true,
+          "display_name": "salary_bucket",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "b8283305-3156-4625-afc2-6685ad92dad4",
+          "is_selected": true,
+          "display_name": "surname",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "a1fd134b-223c-48de-98e1-780bc49f7da9",
+          "is_selected": true,
+          "display_name": "tenure",
+          "type": "semantic_model.column",
+          "data_type": "Int64",
+          "description": null,
+          "children": []
+        },
+        {
+          "id": "e4f45587-e075-4eb1-80d8-668a9764f13c",
+          "is_selected": true,
+          "display_name": "tenure_bucket",
+          "type": "semantic_model.column",
+          "data_type": "String",
+          "description": null,
+          "children": []
+        }
+      ]
+    }
+  ]
+}

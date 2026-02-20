@@ -1,0 +1,15 @@
+[
+  {
+    "name": "silver",
+    "path": "/Tables",
+    "target": {
+      "type": "OneLake",
+      "oneLake": {
+        "path": "Tables/dbo",
+        "itemId": "ee4b19d4-853a-af34-4c57-c2263890b5bf",
+        "workspaceId": "00000000-0000-0000-0000-000000000000",
+        "artifactType": "Warehouse"
+      }
+    }
+  }
+]

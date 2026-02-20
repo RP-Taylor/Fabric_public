@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Dataflow",
+    "displayName": "Clean and Prepare Silver Customer Table"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "b3df9cc5-02a0-a9b5-43ed-d7ac8390a127"
+  }
+}

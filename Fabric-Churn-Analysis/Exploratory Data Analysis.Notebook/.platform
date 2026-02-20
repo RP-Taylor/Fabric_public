@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Notebook",
+    "displayName": "Exploratory Data Analysis"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a8eb6d6d-7859-8d7a-43a8-9ca6b5d1be66"
+  }
+}

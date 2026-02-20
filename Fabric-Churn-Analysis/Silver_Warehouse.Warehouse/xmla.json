@@ -1,0 +1,341 @@
+{
+  "name": "{{Dataset_Name}}",
+  "compatibilityLevel": 1604,
+  "model": {
+    "name": "{{Dataset_Name}}",
+    "culture": "en-US",
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "silver_churn",
+        "sourceLineageTag": "[dbo].[silver_churn]",
+        "columns": [
+          {
+            "name": "customer_id",
+            "dataType": "int64",
+            "sourceColumn": "customer_id",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "customer_id",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "surname",
+            "dataType": "string",
+            "sourceColumn": "surname",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "surname",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "credit_score",
+            "dataType": "int64",
+            "sourceColumn": "credit_score",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "credit_score",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "geography",
+            "dataType": "string",
+            "sourceColumn": "geography",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "geography",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "gender",
+            "dataType": "string",
+            "sourceColumn": "gender",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "gender",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "age",
+            "dataType": "int64",
+            "sourceColumn": "age",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "age",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "tenure",
+            "dataType": "int64",
+            "sourceColumn": "tenure",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "tenure",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "balance",
+            "dataType": "double",
+            "sourceColumn": "balance",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "balance",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "number_of_products",
+            "dataType": "int64",
+            "sourceColumn": "number_of_products",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "number_of_products",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "has_credit_card",
+            "dataType": "int64",
+            "sourceColumn": "has_credit_card",
+            "formatString": "0",
+            "sourceProviderType": "int",
+            "sourceLineageTag": "has_credit_card",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "is_current_customer",
+            "dataType": "boolean",
+            "sourceColumn": "is_current_customer",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "is_current_customer",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "estimated_salary",
+            "dataType": "double",
+            "sourceColumn": "estimated_salary",
+            "sourceProviderType": "float",
+            "sourceLineageTag": "estimated_salary",
+            "summarizeBy": "sum",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ]
+          },
+          {
+            "name": "is_churned",
+            "dataType": "boolean",
+            "sourceColumn": "is_churned",
+            "formatString": "\"TRUE\";\"TRUE\";\"FALSE\"",
+            "sourceProviderType": "bit",
+            "sourceLineageTag": "is_churned",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "age_bucket",
+            "dataType": "string",
+            "sourceColumn": "age_bucket",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "age_bucket",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "salary_bucket",
+            "dataType": "string",
+            "sourceColumn": "salary_bucket",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "salary_bucket",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "tenure_bucket",
+            "dataType": "string",
+            "sourceColumn": "tenure_bucket",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "tenure_bucket",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "balance_bucket",
+            "dataType": "string",
+            "sourceColumn": "balance_bucket",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "balance_bucket",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "credit_score_bucket",
+            "dataType": "string",
+            "sourceColumn": "credit_score_bucket",
+            "sourceProviderType": "varchar",
+            "sourceLineageTag": "credit_score_bucket",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          },
+          {
+            "name": "ingestion_date",
+            "dataType": "dateTime",
+            "sourceColumn": "ingestion_date",
+            "formatString": "General Date",
+            "sourceProviderType": "datetime2",
+            "sourceLineageTag": "ingestion_date",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "{{Partition_Name}}",
+            "mode": "directLake",
+            "source": {
+              "type": "entity",
+              "entityName": "silver_churn",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "IsTableInBiModel",
+            "value": "False"
+          }
+        ]
+      }
+    ],
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "kind": "m",
+        "expression": "let\n    database = {{TDS_Endpoint}}\nin\n    database\n"
+      }
+    ],
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "SourceLineageTagType",
+        "value": "DatabaseFullyQualifiedName"
+      }
+    ]
+  }
+}
